@@ -1,0 +1,249 @@
+/* ============================================
+   TIKTOK-STYLE VELOCITY STREAMS
+   ============================================ */
+
+.velocity-stream {
+  position: absolute;
+  width: 4px;
+  pointer-events: none;
+  z-index: 15;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================
+   VELOCITY POSITIONS
+   ============================================ */
+
+/* Hero Main Card */
+.velocity-hero {
+  right: 1.5rem;
+  top: 15%;
+  height: 70%;
+}
+
+/* Mini Side Cards */
+.velocity-mini {
+  right: 0.75rem;
+  top: 15%;
+  height: 70%;
+}
+
+/* Grid Cards */
+.velocity-card {
+  right: 1rem;
+  top: 10%;
+  height: 80%;
+}
+
+/* ============================================
+   VELOCITY SPEED TIERS
+   ============================================ */
+
+.velocity-stream[data-speed="fast"] {
+  opacity: 1;
+}
+
+.velocity-stream[data-speed="medium"] {
+  opacity: 0.7;
+}
+
+.velocity-stream[data-speed="slow"] {
+  opacity: 0;
+}
+
+/* ============================================
+   VELOCITY TRAILS (TRIPLE LAYER)
+   ============================================ */
+
+.velocity-trail {
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 255, 198, 0.9),
+    transparent
+  );
+  border-radius: 2px;
+}
+
+[data-theme="dark"] .velocity-trail {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 255, 198, 1),
+    transparent
+  );
+  box-shadow: 0 0 8px rgba(0, 255, 198, 0.5);
+}
+
+/* Trail 1 - Primary */
+.velocity-trail:nth-child(1) {
+  animation: velocityFlow1 0.8s linear infinite;
+}
+
+/* Trail 2 - Delayed */
+.velocity-trail:nth-child(2) {
+  animation: velocityFlow2 0.8s linear infinite;
+  opacity: 0.7;
+}
+
+/* Trail 3 - More Delayed */
+.velocity-trail:nth-child(3) {
+  animation: velocityFlow3 0.8s linear infinite;
+  opacity: 0.4;
+}
+
+/* ============================================
+   VELOCITY FLOW ANIMATIONS
+   ============================================ */
+
+@keyframes velocityFlow1 {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+}
+
+@keyframes velocityFlow2 {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.7;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+}
+
+@keyframes velocityFlow3 {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  to {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   MEDIUM SPEED ADJUSTMENTS
+   ============================================ */
+
+.velocity-stream[data-speed="medium"] .velocity-trail:nth-child(1) {
+  animation-duration: 1.2s;
+}
+
+.velocity-stream[data-speed="medium"] .velocity-trail:nth-child(2) {
+  animation-duration: 1.2s;
+}
+
+.velocity-stream[data-speed="medium"] .velocity-trail:nth-child(3) {
+  animation-duration: 1.2s;
+}
+
+/* ============================================
+   VELOCITY INDICATOR (ALT STYLE - PARTICLES)
+   ============================================ */
+
+.velocity-particles {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.velocity-particles::before,
+.velocity-particles::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #00ffc6;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 255, 198, 0.8);
+  animation: particleRise 1.5s ease-in infinite;
+}
+
+.velocity-particles::after {
+  animation-delay: 0.75s;
+}
+
+@keyframes particleRise {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   ACCELERATION BADGE (BONUS)
+   ============================================ */
+
+.acceleration-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 15;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  color: white;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.5);
+  animation: accelPulse 1.5s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.acceleration-badge::before {
+  content: '🚀';
+  font-size: 1rem;
+}
+
+@keyframes accelPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(255, 107, 107, 0.8);
+  }
+}

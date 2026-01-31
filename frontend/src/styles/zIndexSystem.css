@@ -1,0 +1,57 @@
+:root {
+  --z-base: 0;
+  --z-background: -1;
+  
+  --z-card-content: 1;
+  --z-card-overlay: 2;
+  --z-decorative: 5;
+  --z-content: 10;
+  --z-elevated-content: 20;
+  
+  --z-dropdown: 100;
+  --z-popover: 200;
+  --z-tooltip: 300;
+  --z-floating-ui: 400;
+  
+  --z-sticky-sidebar: 1000;
+  --z-sticky-content: 1010;
+  --z-sticky-header: 1020;
+  --z-sticky-nav: 1030;
+  --z-horizontal-nav: 1040;
+  
+  --z-overlay-low: 2000;
+  --z-overlay-sidebar: 2024;
+  --z-overlay-modal: 2050;
+  --z-overlay-critical: 2100;
+  
+  --z-drawer: 3000;
+  --z-drawer-sidebar: 3026;
+  --z-drawer-nav: 3050;
+  
+  --z-modal: 4000;
+  --z-modal-content: 4010;
+  --z-modal-nested: 4100;
+  
+  --z-fixed-low: 5000;
+  --z-fixed-button: 5030;
+  --z-fixed-action: 5050;
+  --z-fixed-rail: 5100;
+  
+  --z-hamburger-overlay: 9000;
+  --z-hamburger-panel: 9010;
+  --z-hamburger-button: 9025;
+  --z-hamburger-nav: 9050;
+  
+  --z-notification: 7000;
+  --z-toast: 7100;
+  --z-alert: 7200;
+  --z-banner: 7300;
+  
+  --z-loading: 8000;
+  --z-loading-spinner: 8010;
+  --z-system-message: 8500;
+  
+  --z-critical: 10000;
+  --z-debug: 9500;
+  --z-maximum: 9999;
+}

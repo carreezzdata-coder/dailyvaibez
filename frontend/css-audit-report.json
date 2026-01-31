@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "totalRules": 0,
+    "totalFiles": 0,
+    "conflictCount": 0,
+    "redundancyCount": 0,
+    "imbalanceCount": 0,
+    "scanDate": "2026-01-07T05:16:35.845Z",
+    "filesScanned": []
+  },
+  "conflicts": [],
+  "imbalances": [],
+  "redundancies": [],
+  "warnings": [],
+  "recommendations": []
+}

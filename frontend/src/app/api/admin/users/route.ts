@@ -1,0 +1,387 @@
+// frontend/src/app/api/admin/users/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { getBackendUrl, forwardCookies } from '@/lib/backend-config';
+
+export const dynamic = 'force-dynamic';
+
+function buildHeaders(request: NextRequest, additionalHeaders: Record<string, string> = {}) {
+  const headers: HeadersInit = {
+    'Content-Type': 'application/json',
+    ...additionalHeaders
+  };
+
+  const cookieHeader = request.headers.get('cookie');
+  if (cookieHeader) {
+    headers['Cookie'] = cookieHeader;
+  }
+
+  const csrfToken = request.headers.get('x-csrf-token');
+  if (csrfToken) {
+    headers['X-CSRF-Token'] = csrfToken;
+  }
+
+  const forwardedFor = request.headers.get('x-forwarded-for');
+  const realIp = request.headers.get('x-real-ip');
+  if (forwardedFor) {
+    headers['X-Forwarded-For'] = forwardedFor;
+  } else if (realIp) {
+    headers['X-Real-IP'] = realIp;
+  }
+
+  return headers;
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const queryString = searchParams.toString();
+    const backendUrl = getBackendUrl();
+    const url = `${backendUrl}/api/admin/users${queryString ? `?${queryString}` : ''}`;
+    
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: buildHeaders(request),
+      credentials: 'include'
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        return NextResponse.json({ 
+          success: false, 
+          message: 'Authentication required',
+          users: [],
+          authenticated: false
+        }, { status: 401 });
+      }
+      
+      if (response.status === 403) {
+        return NextResponse.json({ 
+          success: false, 
+          message: 'Insufficient permissions',
+          users: []
+        }, { status: 403 });
+      }
+      
+      if (response.status === 404) {
+        return NextResponse.json({ 
+          success: false, 
+          message: 'Users endpoint not found',
+          users: []
+        }, { status: 404 });
+      }
+      
+      const errorText = await response.text().catch(() => '');
+      return NextResponse.json({ 
+        success: false, 
+        message: `Backend error: ${response.status}`,
+        users: []
+      }, { status: response.status });
+    }
+
+    const data = await response.json();
+    const nextResponse = NextResponse.json(data, { 
+      status: 200,
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
+    
+    forwardCookies(response, nextResponse);
+    return nextResponse;
+    
+  } catch (error) {
+    console.error('Admin Users GET API error:', error);
+    return NextResponse.json({ 
+      success: false, 
+      message: 'Failed to fetch users',
+      users: []
+    }, { status: 500 });
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    
+    const { first_name, last_name, email, password, role } = body;
+    if (!first_name?.trim() || !last_name?.trim() || !email?.trim() || !password?.trim() || !role?.trim()) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'First name, last name, email, password, and role are required' 
+      }, { status: 400 });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Invalid email format' 
+      }, { status: 400 });
+    }
+
+    if (password.trim().length < 6) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Password must be at least 6 characters long' 
+      }, { status: 400 });
+    }
+
+    const validRoles = ['moderator', 'editor', 'admin', 'super_admin'];
+    if (!validRoles.includes(role.trim())) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Invalid role specified' 
+      }, { status: 400 });
+    }
+
+    const cleanBody = {
+      first_name: first_name.trim(),
+      last_name: last_name.trim(),
+      email: email.trim().toLowerCase(),
+      phone: body.phone?.trim() || '',
+      password: password.trim(),
+      role: role.trim()
+    };
+
+    const backendUrl = getBackendUrl();
+    const response = await fetch(`${backendUrl}/api/admin/users`, {
+      method: 'POST',
+      headers: buildHeaders(request),
+      body: JSON.stringify(cleanBody),
+      credentials: 'include'
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        return NextResponse.json({
+          success: false,
+          message: 'Authentication required',
+          authenticated: false
+        }, { status: 401 });
+      }
+
+      if (response.status === 403) {
+        const errorData = await response.json().catch(() => ({}));
+        return NextResponse.json({
+          success: false,
+          message: errorData.message || 'Insufficient permissions'
+        }, { status: 403 });
+      }
+
+      if (response.status === 409) {
+        return NextResponse.json({
+          success: false,
+          message: 'Email already in use'
+        }, { status: 409 });
+      }
+
+      const errorText = await response.text().catch(() => '');
+      return NextResponse.json({
+        success: false,
+        message: `Backend error: ${response.status}`
+      }, { status: response.status });
+    }
+
+    const data = await response.json();
+    const nextResponse = NextResponse.json(data, { 
+      status: response.status,
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      }
+    });
+    
+    forwardCookies(response, nextResponse);
+    return nextResponse;
+    
+  } catch (error) {
+    console.error('Admin Users POST API error:', error);
+    return NextResponse.json({ 
+      success: false, 
+      message: 'Failed to create user' 
+    }, { status: 500 });
+  }
+}
+
+export async function PUT(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    
+    if (!id || !id.trim()) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'User ID is required' 
+      }, { status: 400 });
+    }
+
+    const body = await request.json();
+    
+    const { first_name, last_name, email, role } = body;
+    if (!first_name?.trim() || !last_name?.trim() || !email?.trim() || !role?.trim()) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'First name, last name, email, and role are required' 
+      }, { status: 400 });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Invalid email format' 
+      }, { status: 400 });
+    }
+
+    const validRoles = ['moderator', 'editor', 'admin', 'super_admin'];
+    if (!validRoles.includes(role.trim())) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Invalid role specified' 
+      }, { status: 400 });
+    }
+
+    const cleanBody = {
+      first_name: first_name.trim(),
+      last_name: last_name.trim(),
+      email: email.trim().toLowerCase(),
+      phone: body.phone?.trim() || '',
+      role: role.trim()
+    };
+
+    const backendUrl = getBackendUrl();
+    const response = await fetch(`${backendUrl}/api/admin/users?id=${id.trim()}`, {
+      method: 'PUT',
+      headers: buildHeaders(request),
+      body: JSON.stringify(cleanBody),
+      credentials: 'include'
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        return NextResponse.json({
+          success: false,
+          message: 'Authentication required',
+          authenticated: false
+        }, { status: 401 });
+      }
+
+      if (response.status === 403) {
+        const errorData = await response.json().catch(() => ({}));
+        return NextResponse.json({
+          success: false,
+          message: errorData.message || 'Insufficient permissions'
+        }, { status: 403 });
+      }
+
+      if (response.status === 404) {
+        return NextResponse.json({
+          success: false,
+          message: 'User not found'
+        }, { status: 404 });
+      }
+
+      if (response.status === 409) {
+        return NextResponse.json({
+          success: false,
+          message: 'Email already in use by another user'
+        }, { status: 409 });
+      }
+
+      const errorText = await response.text().catch(() => '');
+      return NextResponse.json({
+        success: false,
+        message: `Backend error: ${response.status}`
+      }, { status: response.status });
+    }
+
+    const data = await response.json();
+    const nextResponse = NextResponse.json(data, { 
+      status: response.status,
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      }
+    });
+    
+    forwardCookies(response, nextResponse);
+    return nextResponse;
+    
+  } catch (error) {
+    console.error('Admin Users PUT API error:', error);
+    return NextResponse.json({ 
+      success: false, 
+      message: 'Failed to update user' 
+    }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    
+    if (!id || !id.trim()) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'User ID is required' 
+      }, { status: 400 });
+    }
+
+    const backendUrl = getBackendUrl();
+    const response = await fetch(`${backendUrl}/api/admin/users?id=${id.trim()}`, {
+      method: 'DELETE',
+      headers: buildHeaders(request),
+      credentials: 'include'
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        return NextResponse.json({
+          success: false,
+          message: 'Authentication required',
+          authenticated: false
+        }, { status: 401 });
+      }
+
+      if (response.status === 403) {
+        const errorData = await response.json().catch(() => ({}));
+        return NextResponse.json({
+          success: false,
+          message: errorData.message || 'Insufficient permissions'
+        }, { status: 403 });
+      }
+
+      if (response.status === 404) {
+        return NextResponse.json({
+          success: false,
+          message: 'User not found'
+        }, { status: 404 });
+      }
+
+      const errorText = await response.text().catch(() => '');
+      return NextResponse.json({
+        success: false,
+        message: `Backend error: ${response.status}`
+      }, { status: response.status });
+    }
+
+    const data = await response.json();
+    const nextResponse = NextResponse.json(data, { 
+      status: response.status,
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      }
+    });
+    
+    forwardCookies(response, nextResponse);
+    return nextResponse;
+    
+  } catch (error) {
+    console.error('Admin Users DELETE API error:', error);
+    return NextResponse.json({ 
+      success: false, 
+      message: 'Failed to delete user' 
+    }, { status: 500 });
+  }
+}

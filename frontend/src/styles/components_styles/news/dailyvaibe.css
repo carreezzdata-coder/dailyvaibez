@@ -1,0 +1,392 @@
+/* DailyVaibeAds.css - Enhanced Ad Styles */
+
+.daily-vaibe-ads-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.ad-poster {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  color: var(--text-on-primary);
+  text-align: center;
+  transform-style: preserve-3d;
+}
+
+.ad-poster.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Background Pattern */
+.ad-background-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+  opacity: 0.6;
+}
+
+/* Icon Styles */
+.ad-icon {
+  font-size: 3.5rem;
+  margin-bottom: var(--spacing-md);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ad-poster.active .ad-icon {
+  animation: icon-float 3s ease-in-out infinite;
+}
+
+/* Content Styles */
+.ad-content {
+  position: relative;
+  z-index: 3;
+  max-width: 80%;
+}
+
+.ad-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 900;
+  margin: 0 0 var(--spacing-xs) 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ad-tagline {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-xs) 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  opacity: 0.95;
+  font-family: var(--font-display);
+}
+
+.ad-subtitle {
+  font-size: 0.9rem;
+  margin: 0 0 var(--spacing-lg) 0;
+  opacity: 0.9;
+  font-weight: 500;
+  max-width: 300px;
+  line-height: 1.4;
+}
+
+/* CTA Button */
+.ad-cta-btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-primary);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--border-radius-full);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 4;
+}
+
+.ad-cta-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--shadow-2xl);
+  background: rgba(255, 255, 255, 1);
+}
+
+.cta-arrow {
+  transition: transform 0.3s ease;
+}
+
+.ad-cta-btn:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Badges */
+.ad-badge {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-full);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.ad-corner-ribbon {
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  background: var(--accent-color);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-2xl);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Indicator Dots */
+.ads-indicator {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--spacing-sm);
+  z-index: 10;
+}
+
+.indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.indicator-dot.active {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.indicator-dot:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Small Ad Styles */
+.small-ad-container {
+  position: relative;
+  width: 100%;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+}
+
+.small-ad-container.small { height: 100px; }
+.small-ad-container.medium { height: 120px; }
+
+.small-ad-poster {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  color: var(--text-on-primary);
+  gap: var(--spacing-md);
+}
+
+.small-ad-poster.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.small-ad-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  flex-shrink: 0;
+}
+
+.small-ad-content {
+  flex: 1;
+  text-align: left;
+}
+
+.small-ad-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0 0 var(--spacing-xs) 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.small-ad-tagline {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.small-ad-badge {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 2px 8px;
+  border-radius: var(--border-radius-full);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Theme-specific enhancements */
+[data-theme="dark"] .ad-poster {
+  --glow-intensity: 0.4;
+}
+
+[data-theme="dark"] .ad-cta-btn {
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="african"] .ad-poster {
+  border: 2px solid transparent;
+  border-image: var(--gradient-primary) 1;
+}
+
+[data-theme="mint"] .ad-poster {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Animations */
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.05); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: var(--shadow-xl); }
+  50% { box-shadow: var(--shadow-2xl), 0 0 30px rgba(37, 99, 235, 0.3); }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%) rotateY(45deg); opacity: 0; }
+  to { transform: translateX(0) rotateY(0deg); opacity: 1; }
+}
+
+@keyframes zoom-in {
+  from { transform: scale(0.8) rotateX(45deg); opacity: 0; }
+  to { transform: scale(1) rotateX(0deg); opacity: 1; }
+}
+
+@keyframes float-up {
+  from { transform: translateY(50px) scale(0.9); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes rotate-3d {
+  from { transform: rotateY(90deg) scale(0.8); opacity: 0; }
+  to { transform: rotateY(0deg) scale(1); opacity: 1; }
+}
+
+/* Animation classes */
+.pulse-glow.active { animation: pulse-glow 3s ease-in-out infinite; }
+.slide-in-right.active { animation: slide-in-right 0.8s ease-out; }
+.zoom-in.active { animation: zoom-in 0.8s ease-out; }
+.float-up.active { animation: float-up 0.8s ease-out; }
+.rotate-3d.active { animation: rotate-3d 0.8s ease-out; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .daily-vaibe-ads-container {
+    height: 160px;
+  }
+  
+  .ad-poster {
+    padding: var(--spacing-lg);
+  }
+  
+  .ad-icon {
+    font-size: 2.5rem;
+  }
+  
+  .ad-title {
+    font-size: 1.5rem;
+  }
+  
+  .ad-tagline {
+    font-size: 1rem;
+  }
+  
+  .ad-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .small-ad-container.small { height: 80px; }
+  .small-ad-container.medium { height: 100px; }
+  
+  .small-ad-icon {
+    font-size: 1.5rem;
+  }
+  
+  .small-ad-title {
+    font-size: 0.9rem;
+  }
+  
+  .small-ad-tagline {
+    font-size: 0.7rem;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .ad-poster {
+    border: 2px solid white;
+  }
+  
+  .ad-cta-btn {
+    border: 2px solid white;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ad-poster,
+  .ad-icon,
+  .ad-cta-btn,
+  .indicator-dot {
+    animation: none !important;
+    transition: none !important;
+  }
+}

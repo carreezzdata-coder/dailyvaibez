@@ -1,0 +1,35 @@
+{
+  "name": "dailyvaibe-frontend",
+  "version": "2.0.0",
+  "description": "Daily Vaibe - Catch up with the latest news",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0 --port 3000",
+    "build": "next build",
+    "start": "next start --hostname 0.0.0.0 --port 3000",
+    "lint": "next lint",
+    "clean": "rm -rf .next && npm run dev"
+  },
+  "dependencies": {
+    "critters": "^0.0.21",
+    "html2canvas": "^1.4.1",
+    "lucide-react": "^0.263.1",
+    "next": "15.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/html2canvas": "^0.5.35",
+    "@types/node": "^20.19.21",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "css": "^3.0.0",
+    "eslint": "^9.37.0",
+    "eslint-config-next": "15.0.3",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

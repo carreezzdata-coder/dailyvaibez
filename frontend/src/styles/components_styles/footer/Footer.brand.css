@@ -1,0 +1,233 @@
+.footer-brand-section {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  align-items: start;
+  background: var(--background-secondary);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.footer-brand-tagline {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 3px;
+  margin-top: 3px;
+  flex-wrap: wrap;
+  background: transparent;
+}
+
+.social-link {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-primary);
+  transition: var(--transition-fast);
+  text-decoration: none;
+  padding: 0;
+}
+
+.social-link:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-on-primary);
+  transform: translateY(-1px);
+}
+
+.footer-newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+}
+
+.newsletter-title {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.newsletter-description {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 3px;
+  margin-top: 2px;
+  background: transparent;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background: var(--background-primary);
+  color: var(--text-primary);
+  font-size: 0.68rem;
+  transition: var(--transition-fast);
+  height: 28px;
+  min-width: 0;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px rgba(var(--primary-color-rgb, 37, 99, 235), 0.2);
+}
+
+.newsletter-submit {
+  padding: 5px 10px;
+  background: var(--gradient-primary);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.68rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+  height: 28px;
+}
+
+.newsletter-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.footer-apps {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+}
+
+.apps-title {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.app-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 2px;
+  background: transparent;
+}
+
+.app-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-primary);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  height: 32px;
+}
+
+.app-badge:hover {
+  border-color: var(--primary-color);
+  transform: translateX(2px);
+}
+
+.app-badge svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.social-link:focus-visible,
+.newsletter-input:focus-visible,
+.newsletter-submit:focus-visible,
+.app-badge:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 1px;
+}
+
+@media (max-width: 1024px) {
+  .footer-brand-section {
+    gap: 8px;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-brand-section {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-brand-title {
+    font-size: 1rem;
+  }
+  
+  .footer-socials {
+    gap: 2px;
+  }
+  
+  .social-link {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .newsletter-input,
+  .newsletter-submit {
+    height: 26px;
+    font-size: 0.65rem;
+  }
+  
+  .app-badge {
+    height: 30px;
+    padding: 4px 6px;
+  }
+}

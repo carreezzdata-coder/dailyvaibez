@@ -1,0 +1,241 @@
+.headings-sidebar {
+  width: 100%;
+  height: 100%;
+  background: var(--background-primary);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .headings-sidebar {
+  background: #000;
+  border: 1px solid rgba(0, 255, 198, 0.1);
+}
+
+.headings-header {
+  padding: 14px 16px;
+  background: var(--gradient-primary);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+[data-theme="dark"] .headings-header {
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+  border-bottom-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 255, 198, 0.1);
+}
+
+.headings-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: white;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.headings-icon {
+  font-size: 1.3rem;
+}
+
+.headings-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-secondary);
+}
+
+.headings-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.headings-list::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+.headings-list::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+.headline-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--background-primary);
+}
+
+.headline-item:hover {
+  background: var(--background-secondary);
+  transform: translateX(4px);
+}
+
+[data-theme="dark"] .headline-item {
+  border-bottom-color: rgba(0, 255, 198, 0.05);
+}
+
+[data-theme="dark"] .headline-item:hover {
+  background: #0a0a0a;
+  box-shadow: inset 3px 0 0 var(--primary-color);
+}
+
+.headline-number {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--gradient-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-base);
+  font-weight: 900;
+  font-family: var(--font-heading);
+  box-shadow: var(--shadow-sm);
+}
+
+.headline-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.headline-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-base);
+  font-weight: 700;
+  line-height: var(--line-normal);
+  color: var(--text-primary);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.headline-item:hover .headline-title {
+  color: var(--primary-color);
+}
+
+.headline-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.headline-category {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.headline-separator {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.headline-views {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-secondary);
+}
+
+.headline-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.headline-author {
+  font-weight: 600;
+}
+
+.headline-date {
+  font-style: italic;
+}
+
+.headings-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.meta-icon {
+  font-size: var(--font-xs);
+}
+
+@media (max-width: 1200px) {
+  .headings-sidebar {
+    border-radius: 0;
+  }
+
+  .headings-header {
+    padding: 14px 16px;
+  }
+
+  .headings-title {
+    font-size: 0.95rem;
+  }
+
+  .headline-item {
+    padding: 12px;
+  }
+
+  .headline-title {
+    font-size: var(--font-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .headings-header {
+    padding: 12px 14px;
+  }
+
+  .headings-title {
+    font-size: 0.9rem;
+  }
+
+  .headline-item {
+    padding: 10px;
+  }
+
+  .headline-number {
+    width: 28px;
+    height: 28px;
+    font-size: var(--font-sm);
+  }
+
+  .headline-title {
+    font-size: var(--font-sm);
+  }
+
+  .headline-meta {
+    font-size: 0.65rem;
+  }
+
+  .headline-info {
+    font-size: 0.6rem;
+  }
+}

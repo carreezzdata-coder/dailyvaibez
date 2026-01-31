@@ -1,0 +1,168 @@
+.fire-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.fire-particle {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(to top, #ff4500, #ffa500, transparent);
+  border-radius: 50%;
+  animation: fireRise 2s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes fireRise {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-30px) translateX(10px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60px) translateX(-5px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.fire-particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.fire-particle:nth-child(2) { left: 25%; animation-delay: 0.3s; }
+.fire-particle:nth-child(3) { left: 40%; animation-delay: 0.6s; }
+.fire-particle:nth-child(4) { left: 55%; animation-delay: 0.9s; }
+.fire-particle:nth-child(5) { left: 70%; animation-delay: 1.2s; }
+.fire-particle:nth-child(6) { left: 85%; animation-delay: 1.5s; }
+
+.hot-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  background: linear-gradient(135deg, #ff4500, #ff6347);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.5);
+  animation: hotPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes hotPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 6px 25px rgba(255, 69, 0, 0.7);
+  }
+}
+
+.hot-badge-icon {
+  font-size: 1rem;
+  animation: fireFlicker 0.8s ease-in-out infinite;
+}
+
+@keyframes fireFlicker {
+  0%, 100% { opacity: 1; }
+  25% { opacity: 0.8; }
+  50% { opacity: 1; }
+  75% { opacity: 0.9; }
+}
+
+.shimmer-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  50% { left: 150%; }
+  100% { left: 150%; }
+}
+
+.slide-enter-animation {
+  animation: slideEnterFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideEnterFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-scale-animation {
+  animation: fadeScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .fire-effect {
+    height: 40px;
+  }
+  
+  .fire-particle {
+    width: 3px;
+    height: 15px;
+  }
+  
+  @keyframes fireRise {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-40px) translateX(0) scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  .hot-badge {
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+}

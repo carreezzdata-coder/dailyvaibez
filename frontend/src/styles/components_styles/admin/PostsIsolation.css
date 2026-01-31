@@ -1,0 +1,165 @@
+/* PostsIsolation.css - Add this file and import it in both components */
+/* This will override any conflicting styles */
+
+/* Force isolation on posts components */
+.retrieve-posts {
+  all: initial !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+}
+
+/* Reset and rebuild table structure */
+.retrieve-posts .posts-table {
+  background: #1a1a1a !important;
+  border: 1px solid #333333 !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* Fix table header grid */
+.retrieve-posts .table-header {
+  display: grid !important;
+  grid-template-columns: 40px minmax(200px, 2fr) 120px 160px !important;
+  gap: 1rem !important;
+  padding: 0.75rem 1rem !important;
+  background: #1f1f1f !important;
+  border-bottom: 2px solid #333333 !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Fix post row grid */
+.retrieve-posts .post-row {
+  display: grid !important;
+  grid-template-columns: 40px minmax(200px, 2fr) 120px 160px !important;
+  gap: 1rem !important;
+  padding: 0.75rem 1rem !important;
+  border-bottom: 1px solid #333333 !important;
+  align-items: center !important;
+  min-height: 70px !important;
+}
+
+/* Reset and fix column structure */
+.retrieve-posts .column-content {
+  display: flex !important;
+  gap: 0.75rem !important;
+  align-items: flex-start !important;
+  min-width: 0 !important;
+}
+
+.retrieve-posts .column-stats {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.retrieve-posts .column-actions {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Fix image size */
+.retrieve-posts .post-image {
+  width: 60px !important;
+  height: 45px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Fix post title */
+.retrieve-posts .post-title {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Fix excerpt */
+.retrieve-posts .post-excerpt {
+  font-size: 0.75rem !important;
+  color: #888888 !important;
+}
+
+/* Fix badges */
+.retrieve-posts .status-badge {
+  font-size: 0.65rem !important;
+  padding: 0.2rem 0.4rem !important;
+  border-radius: 4px !important;
+}
+
+/* Fix action buttons */
+.retrieve-posts .action-buttons {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.4rem !important;
+  width: 100% !important;
+  max-width: 160px !important;
+}
+
+.retrieve-posts .action-btn {
+  padding: 0.4rem 0.6rem !important;
+  font-size: 0.75rem !important;
+  white-space: nowrap !important;
+}
+
+/* Fix stats grid */
+.retrieve-posts .stats-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.4rem !important;
+  width: 100% !important;
+  max-width: 120px !important;
+}
+
+.retrieve-posts .stats-grid .stat-item {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0.3rem 0.5rem !important;
+}
+
+/* Fix header layout */
+.retrieve-posts .retrieve-header {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Fix filters */
+.retrieve-posts .filters {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .retrieve-posts .table-header,
+  .retrieve-posts .post-row {
+    grid-template-columns: 35px 1fr !important;
+  }
+  
+  .retrieve-posts .column-stats,
+  .retrieve-posts .column-actions {
+    grid-column: 2 !important;
+    margin-top: 0.5rem !important;
+    padding-top: 0.5rem !important;
+    border-top: 1px solid #333333 !important;
+  }
+  
+  .retrieve-posts .stats-grid {
+    flex-direction: row !important;
+    max-width: none !important;
+  }
+  
+  .retrieve-posts .action-buttons {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    max-width: none !important;
+  }
+}

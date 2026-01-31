@@ -1,0 +1,461 @@
+@media (max-width: 1200px) {
+  .quotes-page-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .quotes-sidebar {
+    width: 100%;
+    max-width: none;
+  }
+
+  .quotes-gallery-section {
+    padding: 0 1.5rem;
+  }
+
+  .quotes-gallery-grid.view-masonry {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-flash-banner {
+    padding: 1rem;
+  }
+
+  .quote-flash-inner {
+    gap: 0.75rem;
+  }
+
+  .quote-flash-icon {
+    font-size: 1.25rem;
+  }
+
+  .quote-flash-label {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+  }
+
+  .quote-flash-text {
+    font-size: 0.9rem;
+  }
+
+  .quote-flash-author {
+    font-size: 0.8rem;
+  }
+
+  .quotes-main-container {
+    padding-top: 1rem;
+  }
+
+  .quotes-gallery-section {
+    padding: 0 1rem;
+  }
+
+  .quotes-gallery-header {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .quotes-gallery-title {
+    font-size: 1.75rem;
+  }
+
+  .quotes-gallery-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .quotes-gallery-grid.view-masonry {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-auto-rows: 16px;
+  }
+
+  .quotes-gallery-grid.view-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .view-masonry .quote-card.tier-hero {
+    grid-column: span 2;
+    grid-row: span 20;
+  }
+
+  .view-masonry .quote-card.tier-large {
+    grid-row: span 16;
+  }
+
+  .view-masonry .quote-card.tier-medium {
+    grid-row: span 13;
+  }
+
+  .view-masonry .quote-card.tier-small {
+    grid-row: span 11;
+  }
+
+  .view-masonry .tier-hero .quote-card-image {
+    height: 320px;
+  }
+
+  .view-masonry .tier-large .quote-card-image {
+    height: 260px;
+  }
+
+  .view-masonry .tier-medium .quote-card-image {
+    height: 210px;
+  }
+
+  .view-masonry .tier-small .quote-card-image {
+    height: 180px;
+  }
+
+  .view-grid .quote-card-image {
+    height: 320px;
+  }
+
+  .quote-card-content {
+    padding: 16px 14px;
+  }
+
+  .tier-hero .quote-card-content {
+    padding: 24px 18px;
+  }
+
+  .tier-small .quote-card-content {
+    padding: 14px 12px;
+  }
+
+  .quote-brand-badge {
+    top: 10px;
+    left: 10px;
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
+
+  .quote-icon {
+    font-size: 3rem;
+    margin-bottom: -10px;
+  }
+
+  .tier-hero .quote-icon {
+    font-size: 4rem;
+    margin-bottom: -14px;
+  }
+
+  .tier-small .quote-icon {
+    font-size: 2.5rem;
+    margin-bottom: -6px;
+  }
+
+  .quote-text {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .tier-hero .quote-text {
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+  }
+
+  .tier-large .quote-text {
+    font-size: 1.1rem;
+  }
+
+  .tier-small .quote-text {
+    font-size: 0.9rem;
+  }
+
+  .quote-footer {
+    gap: 10px;
+  }
+
+  .quote-avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  .tier-hero .quote-avatar {
+    width: 55px;
+    height: 55px;
+  }
+
+  .tier-small .quote-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .quote-sayer-name {
+    font-size: 0.9rem;
+  }
+
+  .tier-hero .quote-sayer-name {
+    font-size: 1rem;
+  }
+
+  .tier-small .quote-sayer-name {
+    font-size: 0.85rem;
+  }
+
+  .quote-sayer-title {
+    font-size: 0.8rem;
+  }
+
+  .tier-small .quote-sayer-title {
+    font-size: 0.7rem;
+  }
+
+  .quote-watermark-text {
+    font-size: clamp(0.8rem, 2.4vw, 1.6rem);
+  }
+
+  .quotes-load-more {
+    padding: 2rem 1rem;
+  }
+
+  .quotes-load-more-btn {
+    padding: 12px 28px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-flash-banner {
+    padding: 0.75rem;
+  }
+
+  .quote-flash-label {
+    display: none;
+  }
+
+  .quote-flash-text {
+    font-size: 0.85rem;
+  }
+
+  .quote-flash-author {
+    font-size: 0.75rem;
+  }
+
+  .quotes-gallery-header {
+    padding: 1rem 0.5rem 1.5rem;
+  }
+
+  .quotes-gallery-title {
+    font-size: 1.5rem;
+  }
+
+  .quotes-gallery-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .quotes-gallery-section {
+    padding: 0 0.75rem;
+  }
+
+  .quotes-gallery-grid.view-masonry {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 14px;
+  }
+
+  .view-masonry .quote-card.tier-hero {
+    grid-column: span 1;
+    grid-row: span 28;
+  }
+
+  .view-masonry .quote-card.tier-large {
+    grid-row: span 22;
+  }
+
+  .view-masonry .quote-card.tier-medium {
+    grid-row: span 18;
+  }
+
+  .view-masonry .quote-card.tier-small {
+    grid-row: span 16;
+  }
+
+  .view-masonry .tier-hero .quote-card-image {
+    height: 390px;
+  }
+
+  .view-masonry .tier-large .quote-card-image {
+    height: 310px;
+  }
+
+  .view-masonry .tier-medium .quote-card-image {
+    height: 250px;
+  }
+
+  .view-masonry .tier-small .quote-card-image {
+    height: 220px;
+  }
+
+  .quote-card-content {
+    padding: 14px 12px;
+  }
+
+  .tier-hero .quote-card-content {
+    padding: 20px 16px;
+  }
+
+  .tier-small .quote-card-content {
+    padding: 12px 10px;
+  }
+
+  .quote-brand-badge {
+    font-size: 0.55rem;
+    padding: 2px 6px;
+    top: 8px;
+    left: 8px;
+  }
+
+  .quote-icon {
+    font-size: 2.5rem;
+    margin-bottom: -8px;
+  }
+
+  .tier-hero .quote-icon {
+    font-size: 3.5rem;
+    margin-bottom: -12px;
+  }
+
+  .tier-small .quote-icon {
+    font-size: 2rem;
+    margin-bottom: -4px;
+  }
+
+  .quote-text {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .tier-hero .quote-text {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+  }
+
+  .tier-large .quote-text {
+    font-size: 1.05rem;
+  }
+
+  .tier-small .quote-text {
+    font-size: 0.85rem;
+  }
+
+  .quote-footer {
+    gap: 8px;
+  }
+
+  .quote-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tier-hero .quote-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tier-small .quote-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .quote-sayer-name {
+    font-size: 0.85rem;
+  }
+
+  .tier-hero .quote-sayer-name {
+    font-size: 0.95rem;
+  }
+
+  .tier-small .quote-sayer-name {
+    font-size: 0.8rem;
+  }
+
+  .quote-sayer-title {
+    font-size: 0.75rem;
+  }
+
+  .tier-small .quote-sayer-title {
+    font-size: 0.65rem;
+  }
+
+  .quote-watermark-text {
+    font-size: clamp(0.6rem, 2vw, 1.2rem);
+  }
+
+  .quotes-sidebar {
+    padding: 0.75rem;
+  }
+
+  .quotes-sidebar-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .quotes-sidebar-icon {
+    font-size: 1.25rem;
+  }
+
+  .quotes-sidebar-title {
+    font-size: 0.9rem;
+  }
+
+  .quotes-sidebar-item {
+    padding: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .quotes-sidebar-quote {
+    font-size: 0.8rem;
+  }
+
+  .quotes-sidebar-author {
+    font-size: 0.75rem;
+  }
+
+  .quotes-sidebar-date {
+    font-size: 0.65rem;
+  }
+
+  .quotes-control-select {
+    padding: 7px 12px;
+    font-size: 0.75rem;
+    min-width: 110px;
+  }
+
+  .quotes-load-more {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .quotes-load-more-btn {
+    padding: 10px 24px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .quotes-gallery-title {
+    font-size: 1.35rem;
+  }
+
+  .quotes-gallery-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .quote-text {
+    font-size: 0.9rem;
+  }
+
+  .tier-hero .quote-text {
+    font-size: 1.05rem;
+  }
+
+  .quote-sayer-name {
+    font-size: 0.8rem;
+  }
+
+  .quote-sayer-title {
+    font-size: 0.7rem;
+  }
+
+  .quote-watermark-text {
+    font-size: clamp(0.5rem, 1.5vw, 1rem);
+  }
+}

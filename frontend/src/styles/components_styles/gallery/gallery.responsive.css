@@ -1,0 +1,357 @@
+@media (max-width: 1200px) {
+  .gallery-grid-container.view-masonry {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-floating-btn {
+    top: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    gap: 6px;
+  }
+
+  .floating-btn-icon {
+    font-size: 1.2rem;
+  }
+
+  .floating-btn-text {
+    font-size: 0.75rem;
+  }
+
+  .gallery-header-section {
+    padding: 45px 16px 10px;
+  }
+
+  .gallery-main-title {
+    font-size: 1.1rem;
+  }
+
+  .gallery-horizontal-nav {
+    margin-bottom: 15px;
+  }
+
+  .gallery-nav-scroll {
+    padding: 0 16px;
+    gap: 0;
+  }
+
+  .gallery-nav-item {
+    padding: 10px 12px;
+    font-size: 0.75rem;
+    gap: 5px;
+  }
+
+  .nav-item-icon {
+    font-size: 0.9rem;
+  }
+
+  .gallery-nav-dropdown {
+    min-width: 200px;
+    max-height: 300px;
+  }
+
+  .gallery-controls-bar {
+    padding: 0 16px 12px;
+  }
+
+  .gallery-controls-row {
+    gap: 6px;
+  }
+
+  .gallery-control-select {
+    min-width: 100px;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+
+  .gallery-grid-container {
+    padding: 0 16px 32px;
+  }
+
+  .gallery-grid-container.view-masonry {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .view-masonry .gallery-card.tier-hero {
+    grid-column: span 2;
+    grid-row: span 14;
+  }
+
+  .view-masonry .gallery-card.tier-large {
+    grid-row: span 11;
+  }
+
+  .view-masonry .gallery-card.tier-medium {
+    grid-row: span 8;
+  }
+
+  .view-masonry .gallery-card.tier-small {
+    grid-row: span 7;
+  }
+
+  .view-masonry .tier-hero .gallery-card-image {
+    height: 280px;
+  }
+
+  .view-masonry .tier-large .gallery-card-image {
+    height: 220px;
+  }
+
+  .view-masonry .tier-medium .gallery-card-image {
+    height: 160px;
+  }
+
+  .view-masonry .tier-small .gallery-card-image {
+    height: 140px;
+  }
+
+  .view-list .gallery-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .view-list .gallery-card-image {
+    width: 100% !important;
+    height: 180px !important;
+  }
+
+  .gallery-grid-container.view-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .gallery-card-title {
+    font-size: 0.8rem;
+  }
+
+  .tier-hero .gallery-card-title {
+    font-size: 1rem;
+  }
+
+  .tier-large .gallery-card-title {
+    font-size: 0.9rem;
+  }
+
+  .gallery-card-meta {
+    gap: 8px;
+    font-size: 0.65rem;
+  }
+
+  .stat-item {
+    padding: 2px 6px;
+    gap: 3px;
+  }
+
+  .gallery-card-brand {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
+
+  .gallery-card-header {
+    gap: 8px;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  .load-more-btn {
+    padding: 10px 24px;
+    font-size: 0.75rem;
+  }
+
+  .gallery-modal-overlay {
+    padding: 20px 10px;
+  }
+
+  .gallery-modal-poster {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .gallery-modal-close {
+    width: 42px;
+    height: 42px;
+    top: 16px;
+    right: 16px;
+    font-size: 1.3rem;
+  }
+
+  .gallery-nav-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+  }
+
+  .gallery-nav-prev {
+    left: 12px;
+  }
+
+  .gallery-nav-next {
+    right: 12px;
+  }
+
+  .poster-logo {
+    top: 20px;
+    right: 20px;
+    font-size: 1rem;
+  }
+
+  .poster-category-badge {
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+
+  .poster-text-overlay {
+    padding: 32px 20px;
+  }
+
+  .poster-text-box {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .poster-title {
+    font-size: 1.4rem;
+  }
+
+  .poster-meta {
+    font-size: 0.75rem;
+    gap: 8px;
+  }
+
+  .poster-social-bar {
+    bottom: 16px;
+    right: 16px;
+    gap: 10px;
+  }
+
+  .poster-social-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .poster-read-more-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .watermark-text {
+    font-size: clamp(0.8rem, 2.4vw, 1.6rem);
+  }
+
+  .poster-watermark-text {
+    font-size: clamp(1.6rem, 4.8vw, 3.2rem);
+  }
+
+  .flash-reader-container {
+    border-radius: 16px;
+    max-height: 95vh;
+  }
+
+  .flash-reader-content {
+    padding: 50px 24px 32px;
+  }
+
+  .flash-close-btn {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .flash-title {
+    font-size: 1.5rem;
+  }
+
+  .flash-body {
+    font-size: 1rem;
+  }
+
+  .flash-meta {
+    font-size: 0.8rem;
+    gap: 8px;
+  }
+
+  .flash-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-floating-btn {
+    top: 12px;
+    right: 12px;
+    padding: 8px 14px;
+    gap: 5px;
+  }
+
+  .floating-btn-icon {
+    font-size: 1.1rem;
+  }
+
+  .floating-btn-text {
+    font-size: 0.7rem;
+  }
+
+  .watermark-text {
+    font-size: clamp(0.6rem, 2vw, 1.2rem);
+  }
+
+  .poster-watermark-text {
+    font-size: clamp(1.2rem, 4vw, 2.4rem);
+  }
+
+  .gallery-card-brand {
+    font-size: 0.55rem;
+    padding: 2px 6px;
+  }
+
+  .poster-social-bar {
+    gap: 8px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .poster-social-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .poster-title {
+    font-size: 1.2rem;
+  }
+
+  .poster-meta {
+    font-size: 0.7rem;
+  }
+
+  .poster-text-overlay {
+    padding: 24px 16px;
+  }
+
+  .poster-text-box {
+    padding: 18px;
+  }
+
+  .flash-reader-content {
+    padding: 45px 20px 28px;
+  }
+
+  .flash-title {
+    font-size: 1.3rem;
+  }
+
+  .flash-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .flash-full-article-btn {
+    padding: 12px 24px;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,223 @@
+:root {
+  --quotes-gap: 1.5rem;
+  --quotes-transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quotes-page {
+  min-height: 100vh;
+  background: var(--background-primary);
+  position: relative;
+}
+
+.quote-flash-banner {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark, var(--primary-color)));
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  animation: slideDown 0.4s ease-out;
+}
+
+[data-theme="dark"] .quote-flash-banner {
+  background: linear-gradient(135deg, #00ffc6, #00d9a8);
+}
+
+[data-theme="african"] .quote-flash-banner {
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+}
+
+.quote-flash-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.quote-flash-icon {
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+.quote-flash-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .quote-flash-label {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.quote-flash-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: var(--quotes-transition);
+  text-align: left;
+  min-width: 0;
+}
+
+.quote-flash-content:hover {
+  transform: translateX(4px);
+}
+
+.quote-flash-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  font-style: italic;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .quote-flash-text {
+  color: #000000;
+}
+
+.quote-flash-author {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .quote-flash-author {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.quotes-main-container {
+  padding-top: 2rem;
+}
+
+.quotes-page-layout {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.quotes-gallery-section {
+  width: 100%;
+}
+
+.quotes-gallery-header {
+  text-align: center;
+  padding: 2rem 2rem 2.5rem;
+  position: relative;
+}
+
+.quotes-gallery-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .quotes-gallery-title {
+  background: linear-gradient(135deg, #00ffc6 0%, #00ff88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="african"] .quotes-gallery-title {
+  background: linear-gradient(135deg, #dc2626 0%, #16a34a 50%, #eab308 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.quotes-gallery-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 0;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .quotes-page-layout {
+    padding: 0 1rem;
+  }
+  
+  .quotes-gallery-header {
+    padding: 1.5rem 1rem 2rem;
+  }
+  
+  .quotes-gallery-title {
+    font-size: 1.75rem;
+  }
+  
+  .quotes-gallery-subtitle {
+    font-size: 0.95rem;
+  }
+}

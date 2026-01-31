@@ -1,0 +1,75 @@
+.quotes-controls-bar {
+  max-width: 100%;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+
+.quotes-controls-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.quotes-control-select {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+  background: var(--background-secondary);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.quotes-control-select:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.quotes-control-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+[data-theme="dark"] .quotes-control-select {
+  background: rgba(20, 20, 20, 0.9);
+  border-color: rgba(0, 255, 198, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .quotes-control-select:hover {
+  border-color: #00ffc6;
+  box-shadow: 0 4px 12px rgba(0, 255, 198, 0.3);
+}
+
+[data-theme="dark"] .quotes-control-select:focus {
+  box-shadow: 0 0 0 4px rgba(0, 255, 198, 0.2);
+}
+
+[data-theme="african"] .quotes-control-select {
+  background: rgba(255, 250, 240, 0.9);
+}
+
+@media (max-width: 768px) {
+  .quotes-controls-bar {
+    margin-bottom: 1rem;
+  }
+
+  .quotes-controls-row {
+    gap: 8px;
+  }
+
+  .quotes-control-select {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    min-width: 120px;
+  }
+}

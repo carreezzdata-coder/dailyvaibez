@@ -1,0 +1,17 @@
+Hostname: An internal hostname used by your Render services.
+dpg-d5saqdngi27c73dqp2dg-a
+
+Port: 5432
+
+Database: dailyvaibeschema
+
+Username: karisdailyvaibe
+
+
+PASWWORD: NjCBtk8SPXJDvQKtUVNCVedxJKsgyuCQ
+
+INTERNAL DATABASE URL: postgresql://karisdailyvaibe:NjCBtk8SPXJDvQKtUVNCVedxJKsgyuCQ@dpg-d5saqdngi27c73dqp2dg-a/dailyvaibeschema
+
+INTERNAL DATABASE URL: postgresql://karisdailyvaibe:NjCBtk8SPXJDvQKtUVNCVedxJKsgyuCQ@dpg-d5saqdngi27c73dqp2dg-a.virginia-postgres.render.com/dailyvaibeschema
+
+PSQL Command: PGPASSWORD=NjCBtk8SPXJDvQKtUVNCVedxJKsgyuCQ psql -h dpg-d5saqdngi27c73dqp2dg-a.virginia-postgres.render.com -U karisdailyvaibe dailyvaibeschema

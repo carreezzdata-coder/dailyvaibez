@@ -1,0 +1,338 @@
+.image-upload-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 2px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  min-height: 400px;
+}
+
+.image-upload-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.upload-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.paste-zone-compact {
+  border: 2px dashed var(--border-primary);
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  background: var(--bg-sidebar);
+  transition: all 0.2s ease;
+}
+
+.paste-zone-compact.drag-over {
+  border-color: var(--vybez-primary);
+  background: rgba(0, 255, 136, 0.05);
+  box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+}
+
+.paste-zone-compact:hover {
+  border-color: var(--vybez-primary);
+  transform: translateY(-1px);
+}
+
+.paste-zone-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.paste-zone-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.paste-zone-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.upload-tips {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: var(--bg-sidebar);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.tips-title {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.image-list-container {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.image-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.image-list-container::-webkit-scrollbar-track {
+  background: var(--bg-sidebar);
+  border-radius: 4px;
+}
+
+.image-list-container::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 4px;
+}
+
+.image-list-container::-webkit-scrollbar-thumb:hover {
+  background: var(--vybez-primary);
+}
+
+.empty-images-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.empty-hint {
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+}
+
+.image-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.image-item {
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--bg-content);
+  transition: all 0.2s ease;
+}
+
+.image-item.featured {
+  border: 2px solid var(--vybez-primary);
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.1);
+}
+
+.image-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.image-item-content {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.image-preview-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.image-preview-thumb {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border-primary);
+}
+
+.featured-badge-small {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  background: var(--vybez-primary);
+  color: #000;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.image-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.image-item-number {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.image-item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-set-featured,
+.btn-delete-image {
+  padding: 0.35rem 0.75rem;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-set-featured {
+  border-color: var(--vybez-primary);
+  color: var(--vybez-primary);
+}
+
+.btn-set-featured:hover {
+  background: var(--vybez-primary);
+  color: #000;
+  transform: translateY(-1px);
+}
+
+.btn-delete-image {
+  border-color: var(--status-danger);
+  color: var(--status-danger);
+}
+
+.btn-delete-image:hover {
+  background: var(--status-danger);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.watermark-checkbox {
+  padding: 0.5rem;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.watermark-checkbox.has-watermark {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.watermark-checkbox.no-watermark {
+  background: rgba(251, 146, 60, 0.1);
+  border-color: rgba(251, 146, 60, 0.3);
+}
+
+.watermark-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.has-watermark .watermark-label {
+  color: #22c55e;
+}
+
+.no-watermark .watermark-label {
+  color: #fb923c;
+}
+
+.watermark-input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.watermark-text {
+  flex: 1;
+}
+
+.watermark-source {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.image-caption-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.image-caption-input:focus {
+  outline: none;
+  border-color: var(--vybez-primary);
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .image-upload-container {
+    grid-template-columns: 250px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-upload-container {
+    grid-template-columns: 1fr;
+  }
+
+  .image-list-container {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-upload-container {
+    padding: 1rem;
+  }
+
+  .image-item-content {
+    flex-direction: column;
+  }
+
+  .image-preview-thumb {
+    width: 100%;
+    height: 200px;
+  }
+}

@@ -1,0 +1,209 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.quote-card:focus-visible,
+.quotes-sidebar-item:focus-visible,
+.quotes-control-select:focus-visible,
+.quotes-load-more-btn:focus-visible,
+.quote-modal-close:focus-visible,
+.quote-nav-btn:focus-visible,
+.quote-modal-share-btn:focus-visible,
+.quote-flash-content:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+[data-theme="dark"] .quote-card:focus-visible,
+[data-theme="dark"] .quotes-sidebar-item:focus-visible,
+[data-theme="dark"] .quotes-control-select:focus-visible,
+[data-theme="dark"] .quotes-load-more-btn:focus-visible,
+[data-theme="dark"] .quote-modal-close:focus-visible,
+[data-theme="dark"] .quote-nav-btn:focus-visible,
+[data-theme="dark"] .quote-modal-share-btn:focus-visible,
+[data-theme="dark"] .quote-flash-content:focus-visible {
+  outline-color: #00ffc6;
+  box-shadow: 0 0 0 6px rgba(0, 255, 198, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .quote-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .quote-modal-overlay {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .quote-modal-container {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.quote-avatar img,
+.quote-modal-avatar img {
+  animation: imageReveal 0.5s ease-out;
+}
+
+@media print {
+  .quote-flash-banner,
+  .quotes-controls-bar,
+  .quotes-load-more,
+  .quote-modal-close,
+  .quote-nav-btn,
+  .quote-modal-share-btn,
+  .quotes-sidebar {
+    display: none !important;
+  }
+
+  .quote-card,
+  .quote-modal-container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+  .quotes-gallery-grid {
+    display: block !important;
+  }
+
+  .quote-card {
+    margin-bottom: 1rem;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+body:has(.quote-modal-overlay) {
+  overflow: hidden;
+}
+
+.loading-skeleton {
+  background: linear-gradient(90deg, 
+    rgba(200, 200, 200, 0.2) 0%, 
+    rgba(200, 200, 200, 0.4) 50%, 
+    rgba(200, 200, 200, 0.2) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+[data-theme="dark"] .loading-skeleton {
+  background: linear-gradient(90deg, 
+    rgba(40, 40, 40, 0.2) 0%, 
+    rgba(60, 60, 60, 0.4) 50%, 
+    rgba(40, 40, 40, 0.2) 100%
+  );
+  background-size: 200% 100%;
+}
+
+.error-state {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.error-state h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.error-state p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-state button {
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.error-state button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .error-state button {
+  background: linear-gradient(135deg, #00ffc6 0%, #00ff88 100%);
+  color: #000000;
+}
+
+.quotes-empty-state {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.quotes-empty-state .empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.quotes-empty-state h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.quotes-empty-state p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}

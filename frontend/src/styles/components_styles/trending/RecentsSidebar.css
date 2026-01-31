@@ -1,0 +1,245 @@
+.recents-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: var(--sidebar-bg, #ffffff);
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.recents-sidebar.visible {
+  right: 0;
+}
+
+.recents-header {
+  padding: 24px 20px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--header-bg, #f9fafb);
+  flex-shrink: 0;
+}
+
+.recents-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary, #1f2937);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.close-recents {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--close-bg, #f3f4f6);
+  border-radius: 8px;
+  color: var(--text-secondary, #6b7280);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-recents:hover {
+  background: var(--close-hover, #e5e7eb);
+  color: var(--text-primary, #1f2937);
+  transform: scale(1.05);
+}
+
+.recents-list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px 12px;
+}
+
+.recents-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.recents-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.recents-list::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb, #d1d5db);
+  border-radius: 3px;
+}
+
+.recents-list::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover, #9ca3af);
+}
+
+.recent-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: var(--item-bg, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.recent-item:hover {
+  background: var(--item-hover, #f9fafb);
+  border-color: var(--border-hover, #d1d5db);
+  transform: translateX(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.recent-rank {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--rank-color, #6b7280);
+  background: var(--rank-bg, #f3f4f6);
+  border-radius: 8px;
+}
+
+.recent-thumbnail {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--thumbnail-bg, #f3f4f6);
+}
+
+.recent-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.recent-item:hover .recent-thumbnail img {
+  transform: scale(1.05);
+}
+
+.recent-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  opacity: 0.5;
+}
+
+.recent-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recent-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary, #1f2937);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.recent-category {
+  color: var(--category-color, #3b82f6);
+  font-weight: 600;
+  padding: 2px 8px;
+  background: var(--category-bg, #eff6ff);
+  border-radius: 4px;
+}
+
+.recent-time {
+  color: var(--text-tertiary, #9ca3af);
+  font-weight: 500;
+}
+
+.recent-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-secondary, #6b7280);
+  font-weight: 500;
+}
+
+.recent-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .recents-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+  
+  .recents-sidebar.visible {
+    right: 0;
+  }
+  
+  .recents-header {
+    padding: 20px 16px;
+  }
+  
+  .recent-thumbnail {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .recent-title {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recent-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .recent-rank {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  
+  .recent-item {
+    padding: 10px;
+    gap: 10px;
+  }
+}

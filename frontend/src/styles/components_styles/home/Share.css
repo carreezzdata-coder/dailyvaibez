@@ -1,0 +1,237 @@
+/* ========================================================================
+   HARMONIZED THEME & SHARING SYSTEM
+   Integrates Fireproof Core Variables with Enhanced Sharing Components
+   ======================================================================== */
+
+/* 1. CORE VARIABLES & HIERARCHY */
+:root {
+  /* Z-Index Layers */
+  --z-base: 1;
+  --z-dropdown: 1000;
+  --z-sticky-header: 1020;
+  --z-header: 1030;
+  --z-modal-backdrop: 1060;
+  --z-modal: 1070;
+  --z-maximum: 2000;
+
+  /* White Theme (Default) */
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --background-primary: #ffffff;
+  --background-elevated: #ffffff;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.2);
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --font-primary: 'Inter', sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. THEME ADAPTATIONS */
+[data-theme="dark"] {
+  --primary-color: #00ffc6;
+  --background-primary: #000000;
+  --background-elevated: #1a1a1a;
+  --text-primary: #ffffff;
+  --border-color: #2a2a2a;
+  --glow-primary: 0 0 20px rgba(0, 255, 198, 0.4);
+}
+
+[data-theme="african"] {
+  --primary-color: #dc2626;
+  --background-primary: #faf8f5;
+  --background-elevated: #ffffff;
+  --text-primary: #1c1917;
+  --border-color: #d6c9ba;
+}
+
+[data-theme="mint"] {
+  --primary-color: #00d4aa;
+  --background-primary: #f0fffe;
+  --background-elevated: #ffffff;
+  --text-primary: #0d3d3d;
+  --border-color: #b8e6e6;
+}
+
+/* 3. GLOBAL RESET */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
+}
+
+/* 4. ENHANCED SHARING COMPONENT */
+.share-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal-backdrop);
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.share-modal {
+  background: var(--background-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-xl);
+  max-width: 420px;
+  width: 100%;
+  box-shadow: var(--shadow-2xl);
+  position: relative;
+  padding: 32px;
+  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.share-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.share-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.share-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* 5. SOCIAL GRID - CLEAN & HARMONIZED */
+.share-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.share-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  color: var(--text-primary);
+}
+
+.share-btn svg {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects using Theme Primary */
+.share-btn:hover {
+  border-color: var(--primary-color);
+  background: var(--background-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] .share-btn:hover {
+  box-shadow: var(--glow-primary);
+}
+
+.share-btn:hover svg {
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
+
+/* 6. COPY LINK BAR - INTEGRATED */
+.share-copy-wrapper {
+  display: flex;
+  gap: 8px;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  border-radius: var(--border-radius-lg);
+  align-items: center;
+}
+
+.share-url-text {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 8px;
+}
+
+.copy-trigger {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.copy-trigger:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+/* 7. UTILITIES & ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 8. RESPONSIVE DESIGN */
+@media (max-width: 480px) {
+  .share-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .share-modal {
+    border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .share-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+}
+
+/* 9. ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  .share-overlay, .share-modal, .share-btn {
+    animation: none !important;
+    transition: none !important;
+  }
+}
